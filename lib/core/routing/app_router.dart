@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sprint_shopping_app_with_bioetrics/core/di/dependency_injection.dart';
 import 'package:sprint_shopping_app_with_bioetrics/core/routing/routes.dart';
+import 'package:sprint_shopping_app_with_bioetrics/features/profile/views/profile_view.dart';
 import 'package:sprint_shopping_app_with_bioetrics/features/signin/logic/login_cubit/login_cubit.dart';
 import 'package:sprint_shopping_app_with_bioetrics/features/signin/ui/signin_view.dart';
 import 'package:sprint_shopping_app_with_bioetrics/features/signup/logic/signup_cubit/signup_cubit.dart';
@@ -54,6 +55,15 @@ class AppRouter {
         return PageTransition(
           type: PageTransitionType.fade,
           child: const HomeView(),
+          settings: settings,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+
+      case Routes.profileView:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const ProfileView(),
           settings: settings,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,

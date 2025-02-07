@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sprint_shopping_app_with_bioetrics/core/helpers/assets.dart';
+import 'package:sprint_shopping_app_with_bioetrics/core/routing/routes.dart';
 import 'package:sprint_shopping_app_with_bioetrics/core/theming/colors_manager.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -27,11 +28,21 @@ class CustomHomeAppBar extends StatelessWidget {
               SvgPicture.asset(
                 SvgAssets.homeAppLogo,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  SvgAssets.homeCartIcon,
-                ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      SvgAssets.homeCartIcon,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.profileView);
+                    },
+                    icon: Icon(Icons.person, color: Colors.white),
+                  ),
+                ],
               ),
             ],
           ),
